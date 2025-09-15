@@ -13,6 +13,7 @@ public class CheckNumberIsLeapYear {
 			System.out.println(year + " year is leap year");
 		} else {
 			System.out.println(year + " year is not a leap year");
+
 		}
 
 	}
