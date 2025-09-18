@@ -10,9 +10,9 @@ public class DublicateWord {
 		Scanner input = new Scanner(System.in);
 		System.out.println("enter the word : ");
 		String word = input.nextLine().toLowerCase();
-		String[] inputdata = word.split(" ");
+		String[] dell = word.split(" ");
 		Set<String> uniq = new HashSet<>();
-		for (String words : inputdata) {
+		for (String words : dell) {
 			uniq.add(words.trim());
 		}
 		for (String words : uniq) {

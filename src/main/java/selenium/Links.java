@@ -23,7 +23,7 @@ public class Links {
 		for (WebElement links : link) {
 			String href = links.getAttribute("href");
 			String text = links.getText();
-			System.out.println("Test above link: " + text);
+			System.out.println("Text above link: " + text);
 			System.out.println("website links: " + href);
 		}
 		driver.quit();
