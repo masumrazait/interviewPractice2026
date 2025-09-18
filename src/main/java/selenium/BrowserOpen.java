@@ -24,12 +24,16 @@ public class BrowserOpen {
 
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//button[normalize-space()='PROCEED TO CHECKOUT']")).click();
-		String NewUrl = "https://rahulshettyacademy.com/seleniumPractise/#/cart";
+		Thread.sleep(3000);
 		String crUrl = driver.getCurrentUrl();
-		if (NewUrl == crUrl) {
+		String NewUrl = "https://rahulshettyacademy.com/seleniumPractise/#/cart";
+
+		System.out.println(crUrl);
+		System.out.println(NewUrl);
+		if (crUrl.equals(NewUrl)) {
 			System.out.println("passed");
 		} else {
-			System.out.println("failed");
+			System.out.println("Failed");
 		}
 		System.err.println(driver.getTitle());
 		driver.quit();
