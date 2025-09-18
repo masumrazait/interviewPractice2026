@@ -28,7 +28,7 @@ public class Links {
 			String url = link.getAttribute("href");
 			String text = link.getText();
 
-			System.out.println("Text above link: " + text);
+			System.out.println("Text above links: " + text);
 			System.out.println("Website link: " + url);
 
 			// skip null, empty, and non-http links
