@@ -34,6 +34,9 @@ public class Actionss {
 			String text=driver.findElement(By.xpath("//*[local-name()='svg']//*[local-name()='g' and @class=\"highcharts-label highcharts-tooltip highcharts-color-undefined\"]//*[name()=\"text\"]")).getText();
 			System.out.println(text);
 		}
+		String parent=driver.getWindowHandle();
+		System.out.println(parent);
+		
 		driver.quit();
 	}
 
