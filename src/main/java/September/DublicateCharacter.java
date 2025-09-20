@@ -1,7 +1,7 @@
 package September;
 
 import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class DublicateCharacter {
 
@@ -24,6 +24,11 @@ public class DublicateCharacter {
 		}
 		System.out.println(uniqnum);
 		System.out.println(uniqstr);
+		ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 2, 3, 4, 4, 5));
+		Set<Integer> set = new LinkedHashSet<>(list);
+		list.clear();
+		list.addAll(set);
+		System.out.println(set);
 
 	}
 
