@@ -5,15 +5,15 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ArrayLIstNumberDublicate {
+public class FIndDublicateElemetFromArrayList {
 
 	public static void main(String[] args) {
-		ArrayList<Integer> list = new ArrayList<Integer>(
-				Arrays.asList(11, 22, 33, 44, 55, 55, 66, 11, 22, 33, 4411, 123, 1234, 123, 1234));
+		ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(1, 23, 3, 4, 32, 1, 23, 234, 2));
 		Set<Integer> set = new HashSet<Integer>(list);
 		list.clear();
-		list.addAll(list);
-		System.out.println(set	);
+		set.addAll(list);
+		System.out.println(set);
+
 	}
 
 }
