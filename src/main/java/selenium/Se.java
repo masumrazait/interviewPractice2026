@@ -53,6 +53,15 @@ public class Se {
 				System.out.println(driver.getTitle());
 				driver.findElement(By.xpath("//button[text()='Take me to the tips! ']"));
 				Thread.sleep(4000);
+				List<WebElement> link1 = driver.findElements(By.tagName("a"));
+				System.out.println(link1.size());
+				for (WebElement links : link1) {
+					String href = links.getAttribute("href");
+					String text = links.getText();
+					System.out.println("Text is presrent on webpage is : " + text);
+					System.out.println("Href is presrent on webpage is : " + href);
+				}
+
 				driver.close();
 			}
 		}
