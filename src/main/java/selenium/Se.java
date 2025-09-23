@@ -14,6 +14,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -33,14 +34,6 @@ public class Se {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		wait.until(ExpectedConditions.titleContains("The Internet"));
 		Thread.sleep(4000);
-		List<WebElement> link = driver.findElements(By.tagName("a"));
-		System.out.println(link.size());
-		for (WebElement links : link) {
-			String href = links.getAttribute("href");
-			String text = links.getText();
-			System.out.println("Text is presrent on webpage is : " + text);
-			System.out.println("Href is presrent on webpage is : " + href);
-		}
 		File screen = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(screen, new File("./image/selenium.png"));
 		String parentwindow = driver.getWindowHandle();
@@ -51,22 +44,25 @@ public class Se {
 			if (!parentwindow.equalsIgnoreCase(childWindow)) {
 				driver.switchTo().window(childWindow);
 				System.out.println(driver.getTitle());
-				driver.findElement(By.xpath("//button[text()='Take me to the tips! ']"));
+				driver.findElement(By.xpath("//button[text()='Take me to the tips! ']")).click();
 				Thread.sleep(4000);
-				List<WebElement> link1 = driver.findElements(By.tagName("a"));
-				System.out.println(link1.size());
-				for (WebElement links : link1) {
-					String href = links.getAttribute("href");
-					String text = links.getText();
-					System.out.println("Text is presrent on webpage is : " + text);
-					System.out.println("Href is presrent on webpage is : " + href);
+				WebElement levels = driver.findElement(By.xpath("//button[text()='Levels']"));
+				Actions action = new Actions(driver);
+				action.moveToElement(levels).perform();
+				driver.findElement(By.xpath("//ul[@class=\"dropdown__menu\"]//a[text()='Beginner']")).click();
+				List<WebElement> Beginner = driver.findElements(By.xpath("//div[@class=\"card__header\"]//div[@class=\"row\"]//small[text()='BEGINNER']"));
+				System.out.println(Beginner.size());
+				for (WebElement e : Beginner) {
+					action.moveToElement(e).perform();
+					// get all headers after hover
+					List<WebElement> headers = driver.findElements(By.xpath("//div[@class='row']//h3"));
+					for (WebElement h : headers) {
+						System.out.println(h.getText());
+					}
 				}
-
 				driver.close();
 			}
 		}
-
 		driver.quit();
 	}
-
 }
