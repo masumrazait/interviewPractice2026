@@ -2,7 +2,9 @@ package selenium;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -41,6 +43,19 @@ public class Se {
 		}
 		File screen = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(screen, new File("./image/selenium.png"));
+		String parentwindow = driver.getWindowHandle();
+		Set<String> allWindows = driver.getWindowHandles();
+		Iterator<String> li = allWindows.iterator();
+		while (li.hasNext()) {
+			String childWindow = li.next();
+			if (!parentwindow.equalsIgnoreCase(childWindow)) {
+				driver.switchTo().window(childWindow);
+				System.out.println(driver.getTitle());
+				driver.findElement(By.xpath("//button[text()='Take me to the tips! ']"));
+				Thread.sleep(4000);
+				driver.close();
+			}
+		}
 
 		driver.quit();
 	}
