@@ -34,8 +34,6 @@ public class Se {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		wait.until(ExpectedConditions.titleContains("The Internet"));
 		Thread.sleep(4000);
-		File screen = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screen, new File("./image/selenium.png"));
 		String parentwindow = driver.getWindowHandle();
 		Set<String> allWindows = driver.getWindowHandles();
 		Iterator<String> li = allWindows.iterator();
@@ -45,12 +43,16 @@ public class Se {
 				driver.switchTo().window(childWindow);
 				System.out.println(driver.getTitle());
 				driver.findElement(By.xpath("//button[text()='Take me to the tips! ']")).click();
-				Thread.sleep(4000);
+				Thread.sleep(2000);
 				WebElement levels = driver.findElement(By.xpath("//button[text()='Levels']"));
+				Thread.sleep(4000);
+				File screen1 = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+				FileUtils.copyFile(screen1, new File("./image/Beginner.png"));
 				Actions action = new Actions(driver);
 				action.moveToElement(levels).perform();
 				driver.findElement(By.xpath("//ul[@class=\"dropdown__menu\"]//a[text()='Beginner']")).click();
-				List<WebElement> Beginner = driver.findElements(By.xpath("//div[@class=\"card__header\"]//div[@class=\"row\"]//small[text()='BEGINNER']"));
+				List<WebElement> Beginner = driver.findElements(
+						By.xpath("//div[@class=\"card__header\"]//div[@class=\"row\"]//small[text()='BEGINNER']"));
 				System.out.println(Beginner.size());
 				for (WebElement e : Beginner) {
 					action.moveToElement(e).perform();
