@@ -1,12 +1,15 @@
 package selenium;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class AllConcept {
 	public static void main(String[] args) throws InterruptedException {
@@ -27,8 +30,26 @@ public class AllConcept {
 			if (!parent.equals(childWindow)) {
 				driver.switchTo().window(childWindow);
 				System.out.println("Child window title: " + driver.getTitle());
+				driver.findElement(By.xpath("//button[text()='Take me to the tips! ']")).click();
+				List<WebElement> link = driver.findElements(By.tagName("a"));
+				System.out.println(link.size());
+				for (WebElement links : link) {
+					String href = links.getAttribute("href");
+					System.out.println(href);
+				}
+				WebElement element = driver.findElement(By.xpath("//button[text()='Categories']"));
+				Actions action = new Actions(driver);
+				action.moveToElement(element).perform();
+				driver.findElement(By.xpath("//a[text()='tools']")).click();
+				List<WebElement> tools = driver.findElements(By.xpath("//small[text()='TOOLS']"));
+				System.out.println(tools.size());
+				for (WebElement listOfTools : tools) {
+					action.moveToElement(listOfTools).perform();
+				}
+
 			}
 		}
+
 		driver.quit();
 	}
 }
