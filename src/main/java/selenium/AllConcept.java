@@ -62,8 +62,12 @@ public class AllConcept {
 						.click();
 				File ss = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 				FileUtils.copyFile(ss, new File("./Images/iamges.png"));
+
 			}
+			driver.switchTo().window(parent);
+
 		}
+		System.out.println(driver.getTitle());
 
 		driver.quit();
 	}
