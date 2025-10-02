@@ -15,5 +15,4 @@ public class SecondHigherNumInArray {
 		}
 		System.out.println(second);
 	}
-
 }
