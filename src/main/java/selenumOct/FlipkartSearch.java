@@ -16,7 +16,7 @@ public class FlipkartSearch {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get("https://www.flipkart.com/");
 
-		driver.findElement(By.name("q")).sendKeys("macbook pro");
+		driver.findElement(By.name("q")).sendKeys("tshirt");
 		Thread.sleep(4000);
 
 		List<WebElement> suggList = driver.findElements(By.xpath("//a[@class='oleBil']/div[2]"));
@@ -25,7 +25,7 @@ public class FlipkartSearch {
 		for (int i = 0; i < suggList.size(); i++) {
 			String text = suggList.get(i).getText();
 			System.out.println(text);
-			if (text.contains("m4 max")) {
+			if (text.contains("tshirt for women")) {
 				suggList.get(i).click();
 				break;
 			}
