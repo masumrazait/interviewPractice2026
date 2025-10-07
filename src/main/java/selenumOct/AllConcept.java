@@ -1,17 +1,21 @@
 package selenumOct;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class AllConcept {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -38,6 +42,14 @@ public class AllConcept {
 				driver.close();
 			}
 		}
+		String testdata = "./TestData/testdata.xlsx";
+
+		FileInputStream input = new FileInputStream(testdata);
+		XSSFWorkbook workbook = new XSSFWorkbook(input);
+		XSSFSheet sheet = workbook.getSheetAt(0);
+		String cellValue = sheet.getRow(0).getCell(0).getStringCellValue();
+		System.out.println(cellValue);
+
 		driver.switchTo().window(parentWindow);
 		driver.quit();
 	}
