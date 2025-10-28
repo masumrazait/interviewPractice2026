@@ -1,0 +1,7 @@
+1   //Screenshot/image
+
+	File screen=((TakesScreenshot)driver).getScreenshot(OutputType.File);
+	FileUtils.copyFile(screen,new File("./Screenshot/image.png");
+
+============== **************************** =============================
+
