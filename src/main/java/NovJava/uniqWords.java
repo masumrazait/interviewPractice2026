@@ -13,7 +13,7 @@ public class uniqWords {
 		}
 		for(String words:uniq){
 		    System.out.println(words);
-		}
-		    
+		}	    
 	}
 }
+	
