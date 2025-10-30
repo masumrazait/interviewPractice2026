@@ -10,7 +10,7 @@ public class ArrayDescending {
 		Arrays.sort(arr);
 		System.out.println("Accending ordered : " + Arrays.toString(arr));
 
-		System.out.print("Array in Descending Order: [");
+		System.out.print("Array in  del Descending Order: [");
 		for (int i = arr.length - 1; i >= 0; i--) {
 			System.out.print(arr[i]);
 			if (i != 0)
