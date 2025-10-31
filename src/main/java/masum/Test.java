@@ -17,6 +17,7 @@ public class Test {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://automationexercise.com/");
+		String str="hellow world";
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,3000)");
 		WebElement src = driver.findElement(By.xpath("(//div[@class=\"single-products\"])[1]"));
@@ -50,6 +51,7 @@ public class Test {
 			System.out.println();
 		}
 
+		for(char c:str.toCharArray())
 		driver.quit();
 	}
 
