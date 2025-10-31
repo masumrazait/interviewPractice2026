@@ -28,7 +28,7 @@ public class Test {
 		Thread.sleep(5000);
 		System.out.println(driver.getTitle());
 		driver.get("https://money.rediff.com/losers");
-		WebElement table = driver.findElement(By.xpath("//table[contains(@class,'dataTable')].//thead/tr/th"));
+		WebElement table = driver.findElement(By.xpath("//table[contains(@class,'dataTable')]"));
 		
 		// Get all header columns
 		List<WebElement> headers = table.findElements(By.xpath(".//thead/tr/th"));
