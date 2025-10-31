@@ -17,6 +17,7 @@ public class Test {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://automationexercise.com/");
+		String str="hellow world";
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,3000)");
 		WebElement src = driver.findElement(By.xpath("(//div[@class=\"single-products\"])[1]"));
@@ -28,7 +29,7 @@ public class Test {
 		Thread.sleep(5000);
 		System.out.println(driver.getTitle());
 		driver.get("https://money.rediff.com/losers");
-		WebElement table = driver.findElement(By.xpath("//table[contains(@class,'dataTable')].//thead/tr/th"));
+		WebElement table = driver.findElement(By.xpath("//table[contains(@class,'dataTable')]"));
 		
 		// Get all header columns
 		List<WebElement> headers = table.findElements(By.xpath(".//thead/tr/th"));
@@ -50,6 +51,7 @@ public class Test {
 			System.out.println();
 		}
 
+		for(char c:str.toCharArray())
 		driver.quit();
 	}
 
