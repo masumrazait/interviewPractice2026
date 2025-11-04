@@ -15,7 +15,7 @@ public class DataReader {
 		XSSFSheet sheet = workbook.getSheetAt(0);
 		String CellValue = sheet.getRow(1).getCell(0).getStringCellValue();
 		System.out.println(CellValue);
-		
+		workbook.close();
 	}
 
 }

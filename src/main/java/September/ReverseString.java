@@ -12,10 +12,8 @@ public class ReverseString {
 		int len = word.length();
 		for (int i = len - 1; i >= 0; i--) {
 			rev = rev + word.charAt(i);
-
 		}
 		System.out.println("original word is: " + word + "\n" + "reversed word is: " + rev);
-
+		sc.close();
 	}
-
 }

@@ -20,6 +20,6 @@ public class PalindromNumberCheck {
 		} else {
 			System.out.println("num is not palindrom: " + rev);
 		}
+		sc.close();
 	}
-
 }

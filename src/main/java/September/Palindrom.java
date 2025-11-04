@@ -19,6 +19,6 @@ public class Palindrom {
 		} else {
 			System.out.println("String is not palindrom: " + rev);
 		}
+		sc.close();
 	}
-
 }

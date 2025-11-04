@@ -10,6 +10,7 @@ public class ExtractSpecialCharacterFromString {
 		String input = sc.nextLine();
 		String sr = input.replaceAll("[^A-Za-z]", "");
 		System.out.println(sr);
+		sc.close();
 	}
 
 }

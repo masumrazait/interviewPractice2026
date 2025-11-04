@@ -18,7 +18,6 @@ public class DublicateWord {
 		for (String words : uniq) {
 			System.out.println(words);
 		}
-
+		input.close();
 	}
-
 }
