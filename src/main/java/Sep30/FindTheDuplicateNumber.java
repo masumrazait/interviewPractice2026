@@ -17,5 +17,6 @@ public class FindTheDuplicateNumber {
 		for (String words : uniq) {
 			System.out.println(words);
 		}
+		sc.close();
 	}
 }

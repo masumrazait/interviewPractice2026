@@ -14,5 +14,6 @@ public class inputreader {
 		XSSFSheet sheet = workbook.getSheetAt(0);
 		String cellValuleString = sheet.getRow(2).getCell(0).getStringCellValue();
 		System.out.println(cellValuleString);
+		workbook.close();
 	}
 }
