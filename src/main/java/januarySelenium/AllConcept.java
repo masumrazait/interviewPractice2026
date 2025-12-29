@@ -31,9 +31,11 @@ public class AllConcept {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,5000)", "");
 		Thread.sleep(3000);
-		File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screenshot, new File("./Images/image1.png"));
-		System.out.println(driver.getTitle());
+		/*
+		 * File screenshot = ((TakesScreenshot)
+		 * driver).getScreenshotAs(OutputType.FILE); FileUtils.copyFile(screenshot, new
+		 * File("./Images/image1.png"));
+		 */System.out.println(driver.getTitle());
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 		driver.findElement(By.xpath("//a[text()='Top Deals']")).click();
 		String parentWindow = driver.getWindowHandle();
@@ -44,9 +46,10 @@ public class AllConcept {
 			if (!parentWindow.equalsIgnoreCase(childWindow)) {
 				driver.switchTo().window(childWindow);
 				System.out.println(driver.getTitle());
-				File img = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-				FileUtils.copyFile(img, new File("./Images/image2.png"));
-				Thread.sleep(3000);
+				/*
+				 * File img = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+				 * FileUtils.copyFile(img, new File("./Images/image2.png"));
+				 */Thread.sleep(3000);
 				driver.close();
 			}
 			driver.switchTo().window(parentWindow);
@@ -64,9 +67,10 @@ public class AllConcept {
 			String cWindow = I1.next();
 			if (!pWindow.equalsIgnoreCase(cWindow)) {
 				driver.switchTo().window(cWindow);
-				File sShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-				FileUtils.copyFile(sShot, new File("./Images/image3.png"));
-				Thread.sleep(3000);
+				/*
+				 * File sShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+				 * FileUtils.copyFile(sShot, new File("./Images/image3.png"));
+				 */Thread.sleep(3000);
 				System.out.println(driver.getTitle());
 				driver.close();
 			}
