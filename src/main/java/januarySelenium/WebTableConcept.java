@@ -13,26 +13,28 @@ public class WebTableConcept {
 	public static WebDriver driver;
 
 	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-	    System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+		driver.get("https://selectorshub.com/xpath-practice-page/");
+		Thread.sleep(4000);
 
-	    driver = new ChromeDriver(); // ✅ initialize static driver
-	    driver.manage().window().maximize();
-	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		// a[text()='Joe.Root']/parent::td/preceding-sibling::td/input[@type='checkbox']
+		// a[text()='John.Smith']/parent::td/preceding-sibling::td/input[@type='checkbox']
 
-	    driver.get("https://selectorshub.com/xpath-practice-page/");
-	    Thread.sleep(4000);
+		// driver.findElement(By.xpath("//a[text()='Joe.Root']/parent::td/preceding-sibling::td/input[@type='checkbox']")).click();
 
-	    selectUser("Joe.Root");
-	    selectUser("John.Smith");
+		selectUser("Joe.Root");
+		selectUser("John.Smith");
 
-	    List<String> joeInfo = getUserInfoList("Joe.Root");
-	    System.out.println(joeInfo);
+		List<String> joeInfo = getUserInfoList("Joe.Root");
+		System.out.println(joeInfo);
+		List<String> johnInfo = getUserInfoList("John.Smith");
+		System.out.println(johnInfo);
 
-	    List<String> johnInfo = getUserInfoList("John.Smith");
-	    System.out.println(johnInfo);
 	}
-
 
 	public static List<String> getUserInfoList(String username) {
 		List<WebElement> userInfoList = driver
