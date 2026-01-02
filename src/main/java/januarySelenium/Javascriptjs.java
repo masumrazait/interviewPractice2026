@@ -1,6 +1,7 @@
 package januarySelenium;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -41,6 +42,18 @@ public class Javascriptjs {
 			}
 		}
 		driver.switchTo().window(parentWindow);
+		driver.get("https://www.globalsqa.com/demo-site/select-dropdown-menu/");
+		List<WebElement> dropdown = driver.findElements(By.xpath("//select/option"));
+		for (WebElement country : dropdown) {
+			if (country.getText().equalsIgnoreCase("India")) {
+				country.click();
+				break;
+			}
+		}
+		for (WebElement option : dropdown) {
+			System.out.println(option.getSize());
+			System.out.println(option.getText());
+		}
 		driver.quit();
 	}
 
