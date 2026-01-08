@@ -1,5 +1,7 @@
 package januarySeleniumWipro;
 
+import java.util.Iterator;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -17,6 +19,19 @@ public class SeleniumCoreConcept {
 		String url = "https://" + username + ":" + password + "@" + "the-internet.herokuapp.com/basic_auth";
 		driver.get(url);
 		driver.findElement(By.xpath("//a[text()='Elemental Selenium']")).click();
+		String PW = driver.getWindowHandle();
+		Set<String> allW = driver.getWindowHandles();
+		Iterator<String> li = allW.iterator();
+		while (li.hasNext()) {
+			String child = li.next();
+			if (!PW.equals(child)) {
+				driver.findElement(By.xpath("//button[text()='Take me to the tips! ']")).click();
+				System.out.println(driver.getTitle());
+				driver.switchTo().window(child);
+				driver.close();
+			}
+		}
+		driver.switchTo().window(PW);
 		System.out.println(driver.getTitle());
 		driver.quit();
 	}
