@@ -21,18 +21,18 @@ public class SeleniumWindowHandle {
 		Thread.sleep(3000);
 		System.out.println(driver.getTitle() + "  \n" + driver.getCurrentUrl());
 		driver.findElement(By.xpath("//a[text()='Elemental Selenium']")).click();
-		String parentWindow = driver.getWindowHandle();
-		Set<String> allWindow = driver.getWindowHandles();
-		Iterator<String> il = allWindow.iterator();
+		String pw = driver.getWindowHandle();
+		Set<String> aw = driver.getWindowHandles();
+		Iterator<String> il = aw.iterator();
 		while (il.hasNext()) {
-			String childWindow = il.next();
-			if (!parentWindow.equalsIgnoreCase(childWindow)) {
-				driver.switchTo().window(childWindow);
+			String cp = il.next();
+			if (!pw.equals(cp)) {
+				driver.switchTo().window(cp);
 				System.out.println(driver.getTitle());
 				driver.close();
 			}
-			driver.switchTo().window(parentWindow);
 		}
+		driver.switchTo().window(pw);
 		driver.quit();
 	}
 }
