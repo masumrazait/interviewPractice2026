@@ -64,6 +64,27 @@
     <artifactId>guice</artifactId>
     <version>4.1.0</version>
 </dependency>
+
+<dependency>
+    <groupId>io.rest-assured</groupId>
+    <artifactId>json-path</artifactId>
+    <version>5.4.0</version>
+    <scope>test</scope>
+</dependency>
+
+<dependency>
+    <groupId>io.rest-assured</groupId>
+    <artifactId>xml-path</artifactId>
+    <version>5.4.0</version>
+    <scope>test</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.hamcrest</groupId>
+    <artifactId>hamcrest</artifactId>
+    <version>2.2</version>
+    <scope>test</scope>
+</dependency>
   
 <!-- https://mvnrepository.com/artifact/log4j/log4j -->
 <dependency>
@@ -93,6 +114,15 @@
     <groupId>org.apache.poi</groupId>
     <artifactId>poi-examples</artifactId>
     <version>4.1.2</version>
+</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+<dependency>
+    <groupId>io.rest-assured</groupId>
+    <artifactId>rest-assured</artifactId>
+    <version>5.5.6</version>
+    <scope>test</scope>
 </dependency>
 
 <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
