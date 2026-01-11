@@ -19,7 +19,7 @@ public class DropdownVerification {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		WebDriverWait wait=new WebDriverWait(driver, 50);
+		WebDriverWait wait = new WebDriverWait(driver, 50);
 		driver.get("https://www.wikipedia.org/");
 		wait.until(ExpectedConditions.titleContains("Wikipedia"));
 		WebElement dropdownElement = driver.findElement(By.id("searchLanguage"));
