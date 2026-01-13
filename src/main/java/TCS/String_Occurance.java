@@ -12,7 +12,9 @@ public class String_Occurance {
 			uniq.put(word, uniq.getOrDefault(word, 0) + 1);
 		}
 		for (String word : uniq.keySet()) {
-			System.out.print(word + " -> " + uniq.get(word) + " ");
+			if (uniq.get(word) == 1) {
+				System.out.print(word + " -> " + uniq.get(word) + " ");
+			}
 		}
 	}
 }
