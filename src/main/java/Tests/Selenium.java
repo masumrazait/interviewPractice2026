@@ -44,7 +44,7 @@ public class Selenium {
 		 * String pw=driver.getWindowHandle(); Set<String>aw=driver.getWindowHandles();
 		 * Iterator< String>li=aw.iterator(); while(li.hasNext()) { String cw=li.next();
 		 * if(!pw.equals(cw)) { driver.switchTo().window(cw);
-		 * System.out.println(driver.getTitle()); driver.close(); } }
+		 * System.out.println(driver.getTitle()); driver.close(); } }aa
 		 * driver.switchTo().window(pw);
 		 * 
 		 * driver.quit();
