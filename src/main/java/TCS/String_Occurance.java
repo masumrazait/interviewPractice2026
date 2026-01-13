@@ -11,6 +11,7 @@ public class String_Occurance {
 		for (String word : words) {
 			uniq.put(word, uniq.getOrDefault(word, 0) + 1);
 		}
+
 		for (String word : uniq.keySet()) {
 			if (uniq.get(word) == 1) {
 				System.out.print(word + " -> " + uniq.get(word) + " ");
