@@ -15,12 +15,14 @@ public class SortedList {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		driver.get("https://testautomationpractice.blogspot.com/");
-		List<WebElement> sortedList = driver.findElements(By.xpath("//select[@id='animals']/option"));
-		System.out.println(sortedList);
-		for (WebElement sortedLists : sortedList) {
-			String value = sortedLists.getAttribute("value");
-			System.out.println(value.toUpperCase());
-			Thread.sleep(500);
+		List<WebElement> animalList = driver.findElements(By.xpath("//select[@id='animals']/option"));
+		for (WebElement animal : animalList) {
+			String value = animal.getAttribute("value");
+			System.out.println(value);
+			if (value.equalsIgnoreCase("cat")) {
+				animal.click();
+				break;
+			}
 		}
 		System.out.println(driver.getTitle());
 		driver.quit();
