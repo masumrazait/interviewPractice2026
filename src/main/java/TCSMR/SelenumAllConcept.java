@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -19,9 +20,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class SelenumAllConcept {
 	public static void main(String[] args) throws InterruptedException, IOException {
 		System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless=new"); // Recommended
-		WebDriver driver = new ChromeDriver(options);
+		//ChromeOptions options = new ChromeOptions();
+		//options.addArguments("--headless=new"); // Recommended
+		WebDriver driver = new ChromeDriver();
 
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
@@ -91,6 +92,10 @@ public class SelenumAllConcept {
 		// Select day
 		driver.findElement(By.xpath("//a[text()='" + targetDay + "']")).click();
 		System.out.println("Selected Date: " + dateInput.getAttribute("value"));
+		WebElement ele = driver.findElement(By.xpath("//button[text()='Simple Alert']"));
+		ele.click();
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
 		Thread.sleep(1000);
 		driver.quit();
 	}
