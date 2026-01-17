@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -45,8 +46,19 @@ public class SelenumAllConcept {
 				System.out.println(Options.getText());
 			}
 		}
-		Thread.sleep(3000);
+		Thread.sleep(1000);
+		List<WebElement> colors = driver.findElements(By.xpath("//select[@id='colors']/option"));
+		System.out.println(colors.size());
+		for (WebElement color : colors) {
+			if (color.getText().equals("Green")) {
+				color.click();
+				System.out.println(color.getText());
+			}
+		}
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,100)");
 
+		Thread.sleep(1000);
 		driver.quit();
 	}
 }
