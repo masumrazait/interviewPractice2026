@@ -57,6 +57,15 @@ public class SelenumAllConcept {
 		}
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,100)");
+		// Sorted List
+		List<WebElement> animals = driver.findElements(By.xpath("//select[@id='animals']/option"));
+		System.out.println(animals.size());
+		for (WebElement animal : animals) {
+			if (animal.getText().equals("Green")) {
+				animal.click();
+			}
+			System.out.println(animal.getText());
+		}
 
 		Thread.sleep(1000);
 		driver.quit();
