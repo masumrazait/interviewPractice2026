@@ -14,6 +14,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SelenumAllConcept {
@@ -72,6 +73,7 @@ public class SelenumAllConcept {
 			System.out.println(animal.getText());
 		}
 		WebDriverWait wait = new WebDriverWait(driver, 59);
+		wait.until(ExpectedConditions.titleContains("Automation Testing Practice"));
 		// Scroll to date picker
 		WebElement dateInput = driver.findElement(By.id("datepicker"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", dateInput);
