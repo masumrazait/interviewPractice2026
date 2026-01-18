@@ -10,8 +10,8 @@ public class FindTheDuplicateNumber {
 		String str = "simaranmasum";
 		Set<Character> uniqchar = new LinkedHashSet<Character>();
 		Set<Character> dubchar = new LinkedHashSet<Character>();
-		Set<Integer> uniqNum = new LinkedHashSet<Integer>();
-		Set<Integer> dubNum = new LinkedHashSet<Integer>();
+		Set<Integer> uniqNum = new HashSet<Integer>();
+		Set<Integer> dubNum = new HashSet<Integer>();
 		for (char c : str.toCharArray()) {
 			if (!uniqchar.add(c)) {
 				dubchar.add(c);
