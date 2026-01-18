@@ -1,6 +1,9 @@
 package TCSMR;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -37,11 +40,35 @@ public class Selenium {
 			if (!pw.equalsIgnoreCase(cw)) {
 				driver.switchTo().window(cw);
 				System.out.println(driver.getTitle());
+				List<WebElement> links = driver.findElements(By.tagName("a"));
+				System.out.println(links.size());
+				for (WebElement link : links) {
+					String url = link.getAttribute("href");
+					if (url == null || url.isEmpty()) {
+						System.err.println("Url is null or Empty");
+						continue;
+					}
+					try {
+						URL linkURL = new URL(url);
+						HttpURLConnection con = (HttpURLConnection) linkURL.openConnection();
+						con.connect();
+						int responseCode = con.getResponseCode();
+						if (responseCode >= 400) {
+							System.out.println(url + " ---> Broken link (" + responseCode + ")");
+						} else {
+							System.out.println(url + " ---> Valid link (" + responseCode + ")");
+
+						}
+					} catch (Exception e) {
+						System.out.println(url + " ---> Exception occurred");
+					}
+				}
 				driver.close();
 			}
 		}
 		driver.switchTo().window(pw);
 		System.out.println(driver.getTitle());
+
 		driver.quit();
 	}
 
