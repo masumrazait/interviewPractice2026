@@ -95,6 +95,7 @@ public class SelenumAllConcept {
 		ele.click();
 		Alert alert = driver.switchTo().alert();
 		alert.accept();
+		driver.navigate().refresh();
 		Thread.sleep(1000);
 		driver.quit();
 	}
