@@ -14,14 +14,13 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SelenumAllConcept {
 	public static void main(String[] args) throws InterruptedException, IOException {
 		System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
-		//ChromeOptions options = new ChromeOptions();
-		//options.addArguments("--headless=new"); // Recommended
+		// ChromeOptions options = new ChromeOptions();
+		// options.addArguments("--headless=new"); // Recommended
 		WebDriver driver = new ChromeDriver();
 
 		driver.manage().window().maximize();
