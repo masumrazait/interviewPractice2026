@@ -9,11 +9,13 @@ public class NonRepeatingCharacter {
 				System.out.print(c + " ");
 			}
 		}
+		
 		System.out.print("\nRepeating characters: ");
 		for (char d : str.toCharArray()) {
 			if (str.indexOf(d) != str.lastIndexOf(d)) {
 				System.out.print(d + " ");
 			}
 		}
+		
 	}
 }
