@@ -2,7 +2,7 @@ package pwc;
 
 public class StringExpand {
 	public static void main(String[] args) {
-		String str = "a3b6p6";
+		String str = "a3b6p6t8";
 		String result = "";
 		for (int i = 0; i < str.length() - 1; i += 2) {
 			char c = str.charAt(i);
