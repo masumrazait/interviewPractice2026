@@ -1,12 +1,12 @@
 package pwc;
 
-public class CharacterCount {
+public class SumOfTheNumber {
 	public static void main(String[] args) {
-		int num = 9999999;
-		while (num > 10) {
+		int num = 987654321;
+		while (num >= 10) {
 			num = sumDigits(num);
 		}
-		System.out.println("SingleDgit sum: " + num);
+		System.out.println("single digit sum: " + num);
 	}
 
 	public static int sumDigits(int n) {
