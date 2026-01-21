@@ -68,7 +68,9 @@ public class Selenium {
 		driver.navigate().refresh();
 		Actions actions = new Actions(driver);
 		actions.keyDown(Keys.CONTROL).sendKeys("r").keyUp(Keys.CONTROL).perform();
-
+		Thread.sleep(2000);
+		driver.navigate().to(driver.getCurrentUrl());
+		Thread.sleep(2000);
 		System.out.println(driver.getTitle());
 		driver.quit();
 	}
