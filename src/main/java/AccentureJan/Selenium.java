@@ -12,11 +12,14 @@ import org.apache.commons.io.FileUtils;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class Selenium {
 	public static void main(String[] args) throws IOException, InterruptedException {
@@ -51,13 +54,21 @@ public class Selenium {
 				for (WebElement link : links) {
 					String url = link.getAttribute("href");
 					System.out.println(url);
-					File screen=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+					File screen = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 					FileUtils.copyFile(screen, new File("./Images/images.png"));
+					JavascriptExecutor js = (JavascriptExecutor) driver;
+					js.executeScript("window.scrollBy(0,4000)");
 				}
 				driver.close();
 			}
 		}
 		driver.switchTo().window(pw);
+		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+		Thread.sleep(3000);
+		driver.navigate().refresh();
+		Actions actions = new Actions(driver);
+		actions.keyDown(Keys.CONTROL).sendKeys("r").keyUp(Keys.CONTROL).perform();
+
 		System.out.println(driver.getTitle());
 		driver.quit();
 	}
