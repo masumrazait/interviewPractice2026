@@ -1,5 +1,6 @@
 package AccentureJan;
 
+import java.awt.Desktop.Action;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -72,6 +73,17 @@ public class Selenium {
 		driver.navigate().to(driver.getCurrentUrl());
 		Thread.sleep(2000);
 		System.out.println(driver.getTitle());
+
+		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+		List<WebElement> productNames = driver.findElements(By.xpath("//h4[@class=\"product-name\"]"));
+		for (WebElement pr : productNames) {
+			actions.moveToElement(pr).perform();
+			Thread.sleep(200);
+			System.out.println(pr.getText());
+		}
+		Thread.sleep(200);
+		actions.sendKeys(Keys.F5);
+
 		driver.quit();
 	}
 }
