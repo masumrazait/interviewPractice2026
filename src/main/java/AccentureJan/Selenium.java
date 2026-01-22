@@ -78,6 +78,7 @@ public class Selenium {
 		List<WebElement> productNames = driver.findElements(By.xpath("//h4[@class=\"product-name\"]"));
 		for (WebElement pr : productNames) {
 			actions.moveToElement(pr).perform();
+			Thread.sleep(200);
 			System.out.println(pr.getText());
 		}
 
