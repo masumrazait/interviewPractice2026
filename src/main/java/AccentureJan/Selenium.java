@@ -81,6 +81,8 @@ public class Selenium {
 			Thread.sleep(200);
 			System.out.println(pr.getText());
 		}
+		Thread.sleep(200);
+		actions.sendKeys(Keys.F5);
 
 		driver.quit();
 	}
