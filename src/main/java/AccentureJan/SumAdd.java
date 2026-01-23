@@ -2,7 +2,7 @@ package AccentureJan;
 
 public class SumAdd {
 	public static void main(String[] args) {
-		int num = 134567;
+		int num = 9999;
 		while (num >= 10) {
 			int sum = 0;
 			while (num > 0) {
