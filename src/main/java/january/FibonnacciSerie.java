@@ -1,7 +1,13 @@
 package january;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 public class FibonnacciSerie {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		int n1 = 0, n2 = 1, next, num = 18;
 		System.out.println(n1 + " " + n2);
 		for (int i = 2; i <= num; i++) {
@@ -13,7 +19,7 @@ public class FibonnacciSerie {
 		System.out.print("String expland the: ");
 		String str = "a5g6j8";
 		String result = "";
-		for (int k = 0; k < str.length() - 1; k+=2) {
+		for (int k = 0; k < str.length() - 1; k += 2) {
 			char c = str.charAt(k);
 			int count = Character.getNumericValue(str.charAt(k + 1));
 			for (int j = 1; j <= count; j++) {
@@ -21,5 +27,18 @@ public class FibonnacciSerie {
 			}
 		}
 		System.out.println(result);
+		String fil = "./TestData/testdata.xlsx";
+		FileInputStream f = new FileInputStream(fil);
+		XSSFWorkbook workbook = new XSSFWorkbook(f);
+		XSSFSheet sheet = workbook.getSheetAt(0);
+		String cell = sheet.getRow(0).getCell(0).getStringCellValue();
+		System.out.println(cell);
+		
+		int[] arr = {1,2,3,4,5};
+		for(int i = arr.length - 1; i >= 0; i--){
+		    System.out.print(arr[i] + " ");
+		}
+
+
 	}
 }
