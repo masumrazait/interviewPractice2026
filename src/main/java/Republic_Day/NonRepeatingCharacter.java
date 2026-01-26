@@ -2,7 +2,7 @@ package Republic_Day;
 
 public class NonRepeatingCharacter {
 	public static void main(String[] args) {
-		String str = "masum11656";
+		String str = "aabbbbcdeaAA";
 		System.out.print("Non repeating character is: ");
 		for (char c : str.toCharArray()) {
 			if (str.indexOf(c) == str.lastIndexOf(c)) {
