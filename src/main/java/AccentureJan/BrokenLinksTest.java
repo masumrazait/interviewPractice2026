@@ -19,7 +19,7 @@ public class BrokenLinksTest {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		// 1️⃣ Open application
-		driver.get("https://masumrazait.netlify.app/"); // change URL
+		driver.get("https://interviewlikeapro.blogspot.com/2026/01/complete-rest-assured-interview.html"); // change URL
 
 		// 2️⃣ Get all anchor tags
 		List<WebElement> links = driver.findElements(By.tagName("a"));

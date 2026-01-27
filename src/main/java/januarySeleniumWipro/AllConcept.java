@@ -32,7 +32,8 @@ public class AllConcept {
 		 * File screenshot = ((TakesScreenshot)
 		 * driver).getScreenshotAs(OutputType.FILE); FileUtils.copyFile(screenshot, new
 		 * File("./Images/image1.png"));
-		 */System.out.println(driver.getTitle());
+		 */
+		System.out.println(driver.getTitle());
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 		driver.findElement(By.xpath("//a[text()='Top Deals']")).click();
 		String parentWindow = driver.getWindowHandle();
