@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -74,6 +75,11 @@ public class SeleniumJava {
 				System.out.println(week);
 			}
 		}
+
+		driver.findElement(By.id("promptBtn")).click();
+		Alert alert = driver.switchTo().alert();
+		alert.sendKeys("masum");
+		alert.accept();
 
 		Thread.sleep(3000);
 		driver.quit();
