@@ -1,6 +1,7 @@
 package Tests;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class FindTheDuplicateNumber {
@@ -19,5 +20,15 @@ public class FindTheDuplicateNumber {
 		for (int i = arr.length - 1; i >= 0; i--) {
 			System.out.print(arr[i] + " ");
 		}
+
+		String str = "masumrazadelhi";
+		Set<Character> uniq = new LinkedHashSet<Character>();
+		Set<Character> dub = new LinkedHashSet<Character>();
+		for (char c : str.toCharArray()) {
+			if (!uniq.add(c)) {
+				dub.add(c);
+			}
+		}
+		System.out.println("\n" + uniq);
 	}
 }
