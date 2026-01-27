@@ -2,7 +2,9 @@ package TCS;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
@@ -81,7 +83,20 @@ public class SeleniumJava {
 		alert.sendKeys("masum");
 		alert.accept();
 
-		Thread.sleep(3000);
+		// popup window
+		driver.findElement(By.id("PopUp")).click();
+		String parentWindow = driver.getWindowHandle();
+		Set<String> allWindows = driver.getWindowHandles();
+
+		for (String window : allWindows) {
+			if (!window.equals(parentWindow)) {
+				driver.switchTo().window(window);
+				System.out.println("Child window title: " + driver.getTitle());
+				driver.close(); // closes child window
+			}
+		}
+		driver.switchTo().window(parentWindow);
+		System.out.println("Parent window title: " + driver.getTitle());
 		driver.quit();
 	}
 }
