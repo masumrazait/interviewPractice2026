@@ -95,7 +95,7 @@ public class SeleniumJava {
 				driver.close(); // closes child window
 			}
 		}
-		driver.switchTo().window(parentWindow);
+//		driver.switchTo().window(parentWindow);
 		System.out.println("Parent window title: " + driver.getTitle());
 		driver.quit();
 	}
