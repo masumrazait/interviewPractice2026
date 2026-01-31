@@ -19,6 +19,7 @@ public class SelenumAlert {
 		XSSFSheet sheet = workbook.getSheetAt(0);
 		String cell = sheet.getRow(0).getCell(0).getStringCellValue();
 		System.out.println(cell);
+		workbook.close();
 
 		System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
 		ChromeOptions opt = new ChromeOptions();
