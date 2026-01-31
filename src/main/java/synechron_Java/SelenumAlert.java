@@ -6,9 +6,12 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 
 public class SelenumAlert {
 	public static void main(String[] args) throws InterruptedException, IOException {
@@ -22,9 +25,10 @@ public class SelenumAlert {
 		workbook.close();
 
 		System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
-		ChromeOptions opt = new ChromeOptions();
-		opt.addArguments("--headless");
-		WebDriver driver = new ChromeDriver(opt);
+		// ChromeOptions opt = new ChromeOptions();
+		// opt.addArguments("--headless");
+		//WebDriver driver = new ChromeDriver(opt);
+		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		String user = "admin";
@@ -33,6 +37,21 @@ public class SelenumAlert {
 		driver.get(app);
 		System.out.println(driver.getTitle());
 		Thread.sleep(3000);
+
+		driver.get("https://the-internet.herokuapp.com/javascript_alerts");
+		driver.findElement(By.xpath("//button[text()='Click for JS Prompt']")).click();
+		Alert alert = driver.switchTo().alert();
+		alert.sendKeys("masum");
+		alert.accept();
+		System.out.println(driver.getTitle());
+		driver.get("https://the-internet.herokuapp.com/");
+		driver.findElement(By.xpath("//a[text()='Drag and Drop']")).click();
+		WebElement src = driver.findElement(By.id("column-a"));
+		WebElement trg = driver.findElement(By.id("column-b"));
+		Actions action = new Actions(driver);
+		action.dragAndDrop(src, trg).build().perform();
+		System.out.println(driver.getTitle());
+
 		driver.quit();
 
 	}
