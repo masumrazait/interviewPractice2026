@@ -2,6 +2,7 @@ package synechron_Java;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -27,7 +28,7 @@ public class SelenumAlert {
 		System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
 		// ChromeOptions opt = new ChromeOptions();
 		// opt.addArguments("--headless");
-		//WebDriver driver = new ChromeDriver(opt);
+		// WebDriver driver = new ChromeDriver(opt);
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -51,8 +52,17 @@ public class SelenumAlert {
 		Actions action = new Actions(driver);
 		action.dragAndDrop(src, trg).build().perform();
 		System.out.println(driver.getTitle());
-
+		driver.get("https://demo.guru99.com/test/web-table-element.php");
+		// Locate all rows
+		List<WebElement> rows = driver.findElements(By.xpath("//table//tr"));
+		for (int i = 1; i < rows.size(); i++) {
+			// Locate columns for each row
+			List<WebElement> cols = rows.get(i).findElements(By.tagName("td"));
+			for (WebElement col : cols) {
+				System.out.print(col.getText() + " | ");
+			}
+			System.out.println();
+		}
 		driver.quit();
-
 	}
 }
