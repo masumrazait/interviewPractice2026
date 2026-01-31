@@ -1,14 +1,25 @@
 package synechron_Java;
 
-import java.awt.image.ImagingOpException;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class SelenumAlert {
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
+
+		String str = "./TestData/testdata.xlsx";
+		FileInputStream fis = new FileInputStream(str);
+		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+		XSSFSheet sheet = workbook.getSheetAt(0);
+		String cell = sheet.getRow(0).getCell(0).getStringCellValue();
+		System.out.println(cell);
+
 		System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
 		ChromeOptions opt = new ChromeOptions();
 		opt.addArguments("--headless");
