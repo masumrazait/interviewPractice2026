@@ -9,12 +9,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class MoveAndCheckLinks {
 
 	public static void main(String[] args) {
 		System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+		ChromeOptions opt = new ChromeOptions();
+		opt.addArguments("--headless");
+		WebDriver driver = new ChromeDriver(opt);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get("https://masumrazait.netlify.app/");
@@ -44,7 +47,7 @@ public class MoveAndCheckLinks {
 					// Navigate to link
 					driver.get(url);
 					System.out.println("Visited Page Title: " + driver.getTitle());
-					Thread.sleep(500);
+					Thread.sleep(50);
 					// Navigate back
 					driver.navigate().back();
 				}
