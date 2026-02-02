@@ -20,20 +20,20 @@ public class ActionContext {
 		driver.get("http://swisnl.github.io/jQuery-contextMenu/demo.html");
 
 		Actions act = new Actions(driver);
-		
+
 		act.contextClick(driver.findElement(By.cssSelector("span.context-menu-one"))).perform();
 		List<WebElement> optionsList = driver.findElements(By.cssSelector("ul.context-menu-list > li >span"));
 		System.out.println(optionsList.size());
-		
-		for(WebElement e : optionsList) {
+
+		for (WebElement e : optionsList) {
 			String text = e.getText();
 			System.out.println(text);
-				if(text.contains("Copy")) {
-					e.click();
-					break;
-				}
+			if (text.contains("Copy")) {
+				e.click();
+				break;
+			}
 		}
-driver.quit();
+		driver.quit();
 	}
 
 }
