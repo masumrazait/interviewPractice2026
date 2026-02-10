@@ -12,7 +12,6 @@ public class UniqCharat {
 			if (c != ' ') {
 				if (!uniq.add(c)) {
 					dub.add(c);
-
 				}
 			}
 		}
