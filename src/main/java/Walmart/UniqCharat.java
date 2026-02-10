@@ -9,8 +9,11 @@ public class UniqCharat {
 		Set<Character> uniq = new LinkedHashSet<Character>();
 		Set<Character> dub = new LinkedHashSet<Character>();
 		for (char c : str.toCharArray()) {
-			if (!uniq.add(c)&& c!=' ') {
-				dub.add(c);
+			if (c != ' ') {
+				if (!uniq.add(c)) {
+					dub.add(c);
+
+				}
 			}
 		}
 		System.out.println(uniq);
