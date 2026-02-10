@@ -1,9 +1,12 @@
 package Walmart;
 
+import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+
+import javax.net.ssl.HttpsURLConnection;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -31,11 +34,29 @@ public class SeleniumConcept {
 				System.out.println(driver.getTitle());
 				driver.switchTo().window(cw);
 				driver.findElement(By.xpath("//button[text()='Take me to the tips! ']")).click();
+				//driver.findElement(By.xpath("//a[text()='External Resources']")).click();
 				List<WebElement> links = driver.findElements(By.tagName("a"));
 				System.out.println(links.size());
 				for (WebElement link : links) {
-					String href = link.getAttribute("href");
-					System.out.println(href);
+					String url = link.getAttribute("href");
+					// System.out.println(url);
+					if (url == null || url.isEmpty()) {
+						System.out.println("URL is empty or null");
+						continue;
+					}
+					try {
+						URL linkURL = new URL(url);
+						HttpsURLConnection con = (HttpsURLConnection) linkURL.openConnection();
+						con.connect();
+						int responseCode = con.getResponseCode();
+						if (responseCode >= 400) {
+							System.out.println(url + " ---> Broken link (" + responseCode + ")");
+						} else {
+							System.out.println(url + " ---> Valid link (" + responseCode + ")");
+						}
+					} catch (Exception e) {
+						System.out.println(url + " ---> Exception occurred");
+					}
 				}
 				driver.close();
 			}
