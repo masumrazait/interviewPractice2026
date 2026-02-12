@@ -34,7 +34,7 @@ public class SeleniumConcept {
 				System.out.println(driver.getTitle());
 				driver.switchTo().window(cw);
 				driver.findElement(By.xpath("//button[text()='Take me to the tips! ']")).click();
-				//driver.findElement(By.xpath("//a[text()='External Resources']")).click();
+				// driver.findElement(By.xpath("//a[text()='External Resources']")).click();
 				List<WebElement> links = driver.findElements(By.tagName("a"));
 				System.out.println(links.size());
 				for (WebElement link : links) {
