@@ -21,7 +21,6 @@ public class CalculationOfProductInCart {
 		Actions action = new Actions(driver);
 		for (WebElement AddToCart : AddToCarts) {
 			action.moveToElement(AddToCart).perform();
-			Thread.sleep(500);
 			AddToCart.click();
 		}
 		WebElement cart = driver.findElement(By.xpath("//a[@class=\"cart-icon\"]/img"));
@@ -34,10 +33,8 @@ public class CalculationOfProductInCart {
 			action.moveToElement(price).perform();
 			int productPrice = Integer.parseInt(price.getText());
 			total += productPrice;
-			System.out.println("product price: " + price.getText() + "" + "as of now: " + total);
-
+			System.out.println("product price: " + price.getText() + " " + "as of now: " + total);
 		}
-
 		driver.quit();
 	}
 }
