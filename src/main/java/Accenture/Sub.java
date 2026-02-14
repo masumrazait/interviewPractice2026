@@ -12,5 +12,6 @@ public class Sub {
 		int second = sc.nextInt();
 		int sub = first - second;
 		System.out.println(first + " - " + second + " = " + sub);
+		sc.close();
 	}
 }
