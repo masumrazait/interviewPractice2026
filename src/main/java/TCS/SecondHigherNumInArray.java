@@ -2,8 +2,8 @@ package TCS;
 
 public class SecondHigherNumInArray {
 	public static void main(String[] args) {
-		int f = Integer.MIN_VALUE;
-		int s = Integer.MIN_VALUE;
+		//int f = Integer.MIN_VALUE;
+		//int s = Integer.MIN_VALUE;
 		for (int num = 1; num <= 100; num++) {
 			System.out.println(num + " is " + (isPrime(num) ? " prime " : " not prime"));
 		}
