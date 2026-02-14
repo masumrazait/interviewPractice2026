@@ -10,11 +10,12 @@ public class NonRepeatingCharacter {
 		}
 		System.out.println("repeat : ");
 		for (char d : str.toCharArray()) {
-			String temp = "";
+			//String temp="";
 			if (str.indexOf(d) != str.lastIndexOf(d)) {
-				temp += str;
+				//temp += str;
 				System.out.print(d + " ");
 			}
+			//System.out.println(temp);
 		}
 	}
 }
