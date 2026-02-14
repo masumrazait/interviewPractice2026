@@ -7,7 +7,9 @@ public class UpperCaseCountInString {
 		for (char c : str.toCharArray()) {
 			if (Character.isUpperCase(c)) {
 				System.out.print(c + " ");
+				count++;
 			}
 		}
+		System.out.println(count);
 	}
 }

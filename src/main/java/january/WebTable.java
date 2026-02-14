@@ -35,7 +35,6 @@ public class WebTable {
 						.getText();
 			}
 		}
-
 		System.out.println(driver.getTitle());
 		driver.quit();
 	}

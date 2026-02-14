@@ -59,7 +59,7 @@ public class Selenium {
 				System.out.println(Headers.size());
 				for (WebElement getHeaders : Headers) {
 					action.moveToElement(getHeaders).perform();
-					Thread.sleep(50);
+					Thread.sleep(20);
 					System.out.println(getHeaders.getText());
 					continue;
 				}

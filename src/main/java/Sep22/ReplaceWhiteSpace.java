@@ -11,6 +11,7 @@ public class ReplaceWhiteSpace {
 		String replaced = str.replaceAll("[^A-Za-z]", "");
 		System.out.println(replaced.toLowerCase());
 		System.out.println(replaced);
+		sc.close();
 	}
 
 }

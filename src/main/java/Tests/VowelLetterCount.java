@@ -8,7 +8,9 @@ public class VowelLetterCount {
 		for (char c : str.toCharArray()) {
 			if (vowel.indexOf(c) != -1) {
 				System.out.print(c + " ");
+				count++;
 			}
 		}
+		System.out.println(count);
 	}
 }

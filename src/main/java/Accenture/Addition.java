@@ -12,5 +12,6 @@ public class Addition {
 		int second = sc.nextInt();
 		int add = first + second;
 		System.out.println(first + " + " + second + " = " + add);
+		sc.close();
 	}
 }
