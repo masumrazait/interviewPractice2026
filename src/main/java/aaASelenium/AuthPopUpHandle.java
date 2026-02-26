@@ -14,6 +14,7 @@ public class AuthPopUpHandle {
 		System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
 		ChromeOptions opt = new ChromeOptions();
 		opt.addArguments("--headless");
+		
 		WebDriver driver = new ChromeDriver(opt);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
