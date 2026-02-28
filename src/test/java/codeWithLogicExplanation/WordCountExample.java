@@ -17,8 +17,14 @@ public class WordCountExample {
 
 		// Loop through each word
 		for (String word : words) {
-			// If word exists, increment count; otherwise start at 1
-			wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
+			// Check if the word already exists in the map
+			if (wordCount.containsKey(word)) {
+				// If yes, increment its count
+				wordCount.put(word, wordCount.get(word) + 1);
+			} else {
+				// If not, add it with initial count = 1
+				wordCount.put(word, 1);
+			}
 		}
 
 		// Print each word and its frequency
