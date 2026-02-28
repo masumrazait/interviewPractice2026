@@ -10,6 +10,8 @@ import java.util.concurrent.TimeUnit;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -43,9 +45,10 @@ public class Selenium {
 				driver.switchTo().window(cw);
 				System.out.println(driver.getTitle());
 				driver.findElement(By.xpath("//button[text()='Take me to the tips! ']")).click();
-				
-				//SubHeading
-				List<WebElement> lists = driver.findElements(By.xpath("//div[@class=\"row\"]/descendant::button[2]/child::small"));
+
+				// SubHeading
+				List<WebElement> lists = driver
+						.findElements(By.xpath("//div[@class=\"row\"]/descendant::button[2]/child::small"));
 				System.out.println(lists.size());
 				Actions action = new Actions(driver);
 				for (WebElement getList : lists) {
@@ -54,7 +57,7 @@ public class Selenium {
 					System.out.println(getList.getText());
 					continue;
 				}
-				//Heading
+				// Heading
 				List<WebElement> Headers = driver.findElements(By.xpath("//div[@class=\"card__header\"]//a"));
 				System.out.println(Headers.size());
 				for (WebElement getHeaders : Headers) {
@@ -63,11 +66,24 @@ public class Selenium {
 					System.out.println(getHeaders.getText());
 					continue;
 				}
-				
+
 				driver.close();
 			}
 		}
 		driver.switchTo().window(pw);
+		driver.navigate().refresh();
+		System.out.println(driver.getTitle());
+		Thread.sleep(2000);
+		Actions action = new Actions(driver);
+		action.keyDown(Keys.CONTROL).sendKeys("R").keyUp(Keys.CONTROL).build().perform();
+		Thread.sleep(2000);
+		System.out.println(driver.getTitle());
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("location.reload();");
+		Thread.sleep(2000);
+		System.out.println(driver.getTitle());
+		driver.navigate().to(driver.getCurrentUrl());
+		System.out.println(driver.getTitle());
 		driver.quit();
 	}
 }
