@@ -1,12 +1,19 @@
 package March;
 
 public class EvenLetterPrintFromString {
-	public static void main(String[] args) {
-		String str = "masumraza delhi";
-		for (int i = 1; i <= str.length() - 1; i++) {
-			if (i % 2 == 0) {
-				System.out.print(str.charAt(i)+" ");
-			}
-		}
-	}
+    public static void main(String[] args) {
+        String str = "masumrazadelhi";
+
+        // Remove spaces completely
+        str = str.replace(" ", "");
+
+        // Now count only characters
+        for (int i = 0; i < str.length(); i++) {
+            if (i % 2 == 0) { // even position among letters
+                System.out.print(str.charAt(i) + " ");
+            }
+        }
+    }
 }
+
+//m s m a a e h 
